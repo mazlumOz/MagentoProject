@@ -3,6 +3,7 @@ package Pages;
 import Utilities.GWD;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,5 +57,10 @@ public class ParentPage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrolltoElement(element);
         js.executeScript("arguments[0].click();", element);
+    }
+
+    public void HoverOver(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        new Actions(GWD.getDriver()).moveToElement(element).build().perform();
     }
 }
