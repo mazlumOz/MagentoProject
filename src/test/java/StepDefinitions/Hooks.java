@@ -13,6 +13,7 @@ public class Hooks {
     @After
     public void after(Scenario senaryo)
     {
+
         ExcelUtility.writeToExcel("src/test/java/ApachePOI/resource/CucumberTestSonuçlari.xlsx",
                 senaryo.getName(),
                 senaryo.isFailed() ? "Fail": "Passed"
