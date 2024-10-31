@@ -2,13 +2,16 @@ package StepDefinitions;
 
 import Pages.DialogContent;
 import Pages.LeftNav;
+import Utilities.ExcelUtility;
 import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _04_TABMenu {
@@ -18,9 +21,11 @@ public class _04_TABMenu {
     public void theUserClicksOnTheCategoriesInTheTABMenu(DataTable dtButtons) {
         List<String> listButoons=dtButtons.asList();
 
-        for (int i = 0; i < listButoons.size(); i++) {
-            dc.HoverOver(dc.getWebElement(listButoons.get(i)));
-        }
+
+            for (int i = 0; i < listButoons.size(); i++) {
+                dc.HoverOver(dc.getWebElement(listButoons.get(i)));
+            }
+
 
     }
 
@@ -39,23 +44,31 @@ public class _04_TABMenu {
         List<String> listButtons=dtButtons.asList();
 
         for (int i = 0; i < listButtons.size(); i++) {
-            dc.myClick(dc.getWebElement(listButtons.get(i)));
+            dc.HoverOver(dc.getWebElement(listButtons.get(i)));
+            dc.myJsClick(dc.getWebElement(listButtons.get(i)));
+
         }
+
 
     }
 
-    @And("Validates the page containing products belonging to the subcategory")
-    public void validatesThePageContainingProductsBelongingToTheSubcategory(DataTable dtelement, String str) {
-        List<String> listElement=dtelement.asList();
+    @And("Validates the page containing {string} products belonging to the {string} subcategory")
+    public void validatesThePageContainingProductsBelongingToTheSubcategory(String element,String str) {
 
-        for (int i = 0; i < listElement.size(); i++) {
-            dc.LoginContainsText(dc.getWebElement(listElement.get(i)),str);
-        }
+
+            dc.LoginContainsText(dc.getWebElement(element),str);
+
 
     }
 
     @And("User clicks on the back button")
     public void userClicksOnTheBackButton() {
         GWD.getDriver().navigate().back();
+    }
+
+    @Given("login to magento")
+    public void loginToMagento() {
+        GWD.getDriver().get("https://magento.softwaretestingboard.com/");
+
     }
 }
