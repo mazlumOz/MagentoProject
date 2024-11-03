@@ -14,6 +14,39 @@ public class DialogContent extends ParentPage {
         PageFactory.initElements(GWD.getDriver(), this);
     }
 
+    // US 01 User Registration
+    @FindBy(xpath = "(//a[text()='Create an Account'])[1]")
+    public WebElement createAccount;
+
+    @FindBy(xpath = "//*[@id='firstname']")
+    public WebElement firstName;
+
+    @FindBy( xpath = "//*[@id='lastname']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//*[@id='email_address']")
+    public WebElement emailAddress;
+
+    @FindBy(xpath = "//*[@id='password']")
+    public WebElement password;
+
+    @FindBy(xpath = "//*[@id='password-confirmation']")
+    public WebElement passwordConfirmation;
+
+    @FindBy(xpath = "(//span[text()='Create an Account'])[1]")
+    public WebElement createAccountButton;
+
+    @FindBy(xpath = "//div[text()='Thank you for registering with Main Website Store.']")
+    public WebElement thankYouMassage;
+
+    @FindBy(xpath = "(//*[@data-action='customer-menu-toggle'])[1]")
+    public WebElement customerMenuDD;
+
+    @FindBy(css ="a[href*='logout']:first-of-type" )
+    public WebElement signOut;
+
+
+
     @FindBy(xpath = "//span[text()='Women']")
     public WebElement women;
 
@@ -120,6 +153,12 @@ public class DialogContent extends ParentPage {
                 return this.topsText;
             case "bottomsText":
                 return this.bottomsText;
+            case "firstName": return this.firstName;
+            case "lastName": return this.lastName;
+            case "emailAddress":return this.emailAddress;
+            case "password":return this.password;
+            case "passwordConfirmation":return this.passwordConfirmation;
+
 
 
         }
