@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -218,6 +219,66 @@ public class DialogContent extends ParentPage {
 
     @FindBy(css = "a[title='Remove Item']")
     public WebElement deleteWishListBtn;
+
+    @FindBy(xpath= "//span[text()=\"Shop Performance\"]")
+    public WebElement shopPerformanceField;
+
+    @FindBy(xpath= "//span[text()=\"Performance Fabrics\"]")
+    public WebElement performanceFabricsPage;
+
+    @FindBy(id= "mode-list")
+    public WebElement listButton;
+
+    @FindBy(xpath= "//li[@class=\"item product product-item\"][1]")
+    public WebElement productItem1;
+
+    @FindBy(xpath= "//ol[@class=\"products list items product-items\"]")
+    public List<WebElement> productItem;
+
+    @FindBy(xpath= "//span[text()='Add to Cart']")
+    public List<WebElement> addToCartButtons;
+
+    @FindBy(xpath= "//span[text()='Add to Cart']")
+    public WebElement addToCartButton;
+
+    @FindBy(xpath= "//*[@id=\"product-options-wrapper\"]/div/div/div[1]")
+    public List<WebElement> sizeOptions;
+
+    @FindBy(xpath= "//*[@id=\"option-label-size-143-item-171\"]")
+    public WebElement sizeOption;
+
+    @FindBy(xpath= "//*[@id=\"product-options-wrapper\"]/div/div/div[2]")
+    public List<WebElement> colorOptions;
+
+    @FindBy(xpath= "//*[@id=\"option-label-color-93-item-50\"]")
+    public WebElement colorOption;
+
+    @FindBy(id= "qty")
+    public WebElement quantityNumber;
+
+    @FindBy(xpath= "//a[@class=\"action showcart\"]")
+    public WebElement showcart;
+
+    @FindBy(xpath= "//div[@class=\"product-item-details\"]")
+    public WebElement productItemDetail;
+
+    @FindBy(xpath= "//a[@class=\"action delete\"]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath= "//button[@class=\"action-primary action-accept\"]")
+    public WebElement acceptButton;
+
+    @FindBy(xpath= "//strong[@class=\"subtitle empty\"]")
+    public WebElement warningEmptyCartText;
+
+    @FindBy(xpath= "//a[@class=\"action edit\"]")
+    public WebElement editButton;
+
+    @FindBy(xpath= "//span[text()=\"Update Cart\"]")
+    public WebElement updateButton;
+
+    @FindBy(xpath= "//div[@role=\"alert\"]")
+    public WebElement alertMessage;
 
     public WebElement getWebElementt(String strWebElement) {
         switch (strWebElement) {
