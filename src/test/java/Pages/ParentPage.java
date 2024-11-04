@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ParentPage {
     public WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
@@ -28,9 +29,16 @@ public class ParentPage {
         element.click();
     }
 
+    public void myClear(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        scrolltoElement(element);
+        element.clear();
+    }
+
     public void scrolltoElement(WebElement element) {
         JavascriptExecutor js=(JavascriptExecutor) GWD.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
+        js.executeScript("window.scrollBy(0,-350)",element);
     }
 
     public void LoginContainsText(WebElement element, String value){
@@ -62,5 +70,14 @@ public class ParentPage {
     public void HoverOver(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
         new Actions(GWD.getDriver()).moveToElement(element).build().perform();
+    }
+
+    public void actionHover(WebElement element){
+        Actions actions = new Actions(GWD.getDriver());
+        actions.moveToElement(element).perform();
+    }
+
+    public static int randomGenerator(int limit) {
+        return (int)(Math.random() * limit);
     }
 }
