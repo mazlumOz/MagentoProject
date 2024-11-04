@@ -6,6 +6,7 @@ import Utilities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.testng.Assert;
+
 import java.util.List;
 
 public class _08_WishList {
@@ -13,26 +14,29 @@ public class _08_WishList {
     DialogContent dc = new DialogContent();
     LeftNav ln = new LeftNav();
 
+
     @Given("the user navigates to the Magento website")
     public void theUserNavigatesToMagentoWebsite() {
         GWD.getDriver().get("https://magento.softwaretestingboard.com/");
     }
 
+
     @When("the user clicks on the Sign in Link")
     public void theUserClicksOnTheSignInLink() {
-        ln.signInLink.click();
+        dc.myClick(ln.signInLink);
     }
+
 
     @Then("the user types username and password with valid credentials")
     public void theUserTypesUsernameAndPasswordWithValidCredentials() {
-        dc.emailBox.sendKeys("f89721136@gmail.com");
-        dc.passwordBox.sendKeys("kahveHan345");
+        dc.mySendKeys(dc.emailBox, "f89721136@gmail.com");
+        dc.mySendKeys(dc.passwordBox, "kahveHan345");
     }
 
 
     @And("the user clicks on the Sign in button")
     public void theUserClicksOnSignInButton() {
-        dc.signInButton.click();
+        dc.myClick(dc.signInButton);
     }
 
 
@@ -41,20 +45,24 @@ public class _08_WishList {
         org.testng.Assert.assertTrue(dc.welcomeText.isDisplayed());
     }
 
+
     @When("The user goes to the product they want to add to their favorites")
     public void theUserGoesToProductPage() {
         dc.selectProductByIndex(1);
     }
 
+
     @And("The user clicks on the Add to Favorites button")
     public void theUserClicksAddToFavoritesButton() {
-        dc.wishListBtn.get(0).click();
+        dc.myClick(dc.wishListBtn.get(0));
     }
+
 
     @And("The user confirms they added the product to favorites")
     public void theUserConfirmsProductAddedToFavorites() {
         Assert.assertTrue(dc.wishListConfirmMessage.isDisplayed());
     }
+
 
     @And("The user clicks on the Dropdown Menu and My Account button")
     public void theUserClicksOnDropDownMenuAndMyAccountButton(DataTable elements) {
@@ -64,6 +72,7 @@ public class _08_WishList {
         }
     }
 
+
     @When("The user clicks on the My Wish List button")
     public void theUserClicksOnMyWishListButton(DataTable elements) {
         List<String> elementList = elements.asList();
@@ -72,17 +81,19 @@ public class _08_WishList {
         }
     }
 
+
     @Then("The user verifies the product in their favorites list")
     public void theUserVerifiesProductInFavorites() {
         Assert.assertTrue(dc.wishListProduct.isDisplayed());
     }
 
+
     @When("The user hovers over the product and displays the remove from favorites icon")
     public void theUserHoversOverProductAndDisplaysRemoveIcon() {
-
         dc.HoverOver(dc.product);
         Assert.assertTrue(dc.deleteWishListBtn.isDisplayed());
     }
+
 
     @Then("The user clicks the Remove from Favorites button")
     public void theUserClicksRemoveFromFavoritesButton(DataTable elements) {
@@ -91,6 +102,7 @@ public class _08_WishList {
             dc.getWebElementt(element).click();
         }
     }
+
 
     @And("The user confirms the product is removed from favorites")
     public void theUserConfirmsProductRemovedFromFavorites() {
