@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -13,6 +14,39 @@ public class DialogContent extends ParentPage {
     public DialogContent() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
+
+    // US 01 User Registration
+    @FindBy(xpath = "(//a[text()='Create an Account'])[1]")
+    public WebElement createAccount;
+
+    @FindBy(xpath = "//*[@id='firstname']")
+    public WebElement firstName;
+
+    @FindBy( xpath = "//*[@id='lastname']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//*[@id='email_address']")
+    public WebElement emailAddress;
+
+    @FindBy(xpath = "//*[@id='password']")
+    public WebElement password;
+
+    @FindBy(xpath = "//*[@id='password-confirmation']")
+    public WebElement passwordConfirmation;
+
+    @FindBy(xpath = "(//span[text()='Create an Account'])[1]")
+    public WebElement createAccountButton;
+
+    @FindBy(xpath = "//div[text()='Thank you for registering with Main Website Store.']")
+    public WebElement thankYouMassage;
+
+    @FindBy(xpath = "(//*[@data-action='customer-menu-toggle'])[1]")
+    public WebElement customerMenuDD;
+
+    @FindBy(css ="a[href*='logout']:first-of-type" )
+    public WebElement signOut;
+
+
 
     @FindBy(xpath = "//span[text()='Women']")
     public WebElement women;
@@ -120,6 +154,12 @@ public class DialogContent extends ParentPage {
                 return this.topsText;
             case "bottomsText":
                 return this.bottomsText;
+            case "firstName": return this.firstName;
+            case "lastName": return this.lastName;
+            case "emailAddress":return this.emailAddress;
+            case "password":return this.password;
+            case "passwordConfirmation":return this.passwordConfirmation;
+
 
 
         }
@@ -179,6 +219,66 @@ public class DialogContent extends ParentPage {
 
     @FindBy(css = "a[title='Remove Item']")
     public WebElement deleteWishListBtn;
+
+    @FindBy(xpath= "//span[text()=\"Shop Performance\"]")
+    public WebElement shopPerformanceField;
+
+    @FindBy(xpath= "//span[text()=\"Performance Fabrics\"]")
+    public WebElement performanceFabricsPage;
+
+    @FindBy(id= "mode-list")
+    public WebElement listButton;
+
+    @FindBy(xpath= "//li[@class=\"item product product-item\"][1]")
+    public WebElement productItem1;
+
+    @FindBy(xpath= "//ol[@class=\"products list items product-items\"]")
+    public List<WebElement> productItem;
+
+    @FindBy(xpath= "//span[text()='Add to Cart']")
+    public List<WebElement> addToCartButtons;
+
+    @FindBy(xpath= "//span[text()='Add to Cart']")
+    public WebElement addToCartButton;
+
+    @FindBy(xpath= "//*[@id=\"product-options-wrapper\"]/div/div/div[1]")
+    public List<WebElement> sizeOptions;
+
+    @FindBy(xpath= "//*[@id=\"option-label-size-143-item-171\"]")
+    public WebElement sizeOption;
+
+    @FindBy(xpath= "//*[@id=\"product-options-wrapper\"]/div/div/div[2]")
+    public List<WebElement> colorOptions;
+
+    @FindBy(xpath= "//*[@id=\"option-label-color-93-item-50\"]")
+    public WebElement colorOption;
+
+    @FindBy(id= "qty")
+    public WebElement quantityNumber;
+
+    @FindBy(xpath= "//a[@class=\"action showcart\"]")
+    public WebElement showcart;
+
+    @FindBy(xpath= "//div[@class=\"product-item-details\"]")
+    public WebElement productItemDetail;
+
+    @FindBy(xpath= "//a[@class=\"action delete\"]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath= "//button[@class=\"action-primary action-accept\"]")
+    public WebElement acceptButton;
+
+    @FindBy(xpath= "//strong[@class=\"subtitle empty\"]")
+    public WebElement warningEmptyCartText;
+
+    @FindBy(xpath= "//a[@class=\"action edit\"]")
+    public WebElement editButton;
+
+    @FindBy(xpath= "//span[text()=\"Update Cart\"]")
+    public WebElement updateButton;
+
+    @FindBy(xpath= "//div[@role=\"alert\"]")
+    public WebElement alertMessage;
 
     public WebElement getWebElementt(String strWebElement) {
         switch (strWebElement) {
@@ -449,9 +549,11 @@ public class DialogContent extends ParentPage {
         switch (strElementName.trim()){
             case "signIn": return this.signIn;
             case "email": return this.email;
+            case "password": return this.password;
             case "signInButton": return this.signInButton;
             case "loginConfirmation": return this.loginConfirmation;
             case "customerMenuDropDown": return this.customerMenuDropDown;
+            case "signOut": return this.signOut;
             case "forgetPasswordButton": return this.forgetPasswordButton;
             case "myAccountButton":return this.myAccountButton;
             case "manageAddressesButton": return this.manageAddressesButton;
@@ -464,6 +566,7 @@ public class DialogContent extends ParentPage {
             case "saveAddressButton": return this.saveAddressButton;
             case "defaultBilling": return this.defaultBilling;
             case "defaultShipping": return this.defaultShipping;
+            case "deleteButton": return this.deleteButton;
             case "deleteOk": return this.deleteOk;
             case "messageText": return this.messageText;
             case "homePage": return this.homePage;
@@ -486,7 +589,12 @@ public class DialogContent extends ParentPage {
             case "shippingMethods": return this.shippingMethods;
             case "nextButton": return this.nextButton;
             case "placeOrder": return this.placeOrder;
+            case "createAccount": return this.createAccount;
+            case "firstName": return this.firstName;
+            case "lastName": return this.lastName;
+            case "emailAddress": return this.emailAddress;
             case "registrationPassword": return this.registrationPassword;
+            case "passwordConfirmation": return this.passwordConfirmation;
             case "registerButton": return this.registerButton;
             case "searchInput": return this.searchInput;
             case "searchButton": return this.searchButton;
