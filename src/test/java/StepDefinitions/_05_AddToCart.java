@@ -3,8 +3,6 @@ package StepDefinitions;
 import Pages.DialogContent;
 import Pages.LeftNav;
 import Pages.ParentPage;
-import Utilities.GWD;
-import com.google.gson.annotations.Until;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,10 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 
-public class _03_AddToCart {
+public class _05_AddToCart {
     DialogContent dc = new DialogContent();
     LeftNav ln = new LeftNav();
     private WebDriver driver;
