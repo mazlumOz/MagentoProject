@@ -280,6 +280,21 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath= "//div[@role=\"alert\"]")
     public WebElement alertMessage;
 
+    @FindBy(id= "search")
+    public WebElement searchField;
+
+    @FindBy(id= "search_autocomplete")
+    public WebElement selectedSearchOption;
+
+    @FindBy(xpath= "//a[text()='Learn More']")
+    public WebElement learnMoreButton;
+
+    @FindBy(xpath= "//div[@itemprop='sku']")
+    public WebElement skuCodeText;
+
+    @FindBy(xpath= "//div[@class=\"message notice\"]")
+    public WebElement errorMessage;
+
     public WebElement getWebElementt(String strWebElement) {
         switch (strWebElement) {
             case "myAccountButton":
