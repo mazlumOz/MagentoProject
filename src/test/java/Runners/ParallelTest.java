@@ -8,7 +8,7 @@ import org.testng.annotations.Parameters;
 
 @CucumberOptions(
         features = {"src/test/java/FeatureFiles/_02_UserLogin.feature",
-                "src/test/java/FeatureFiles/_03_AdresEkleme.feature",
+                "src/test/java/FeatureFiles/_03_AddAddress.feature",
                 "src/test/java/FeatureFiles/_04_TABMenü.feature",
                 "src/test/java/FeatureFiles/_05_SepeteÜrün Ekleme.feature",
                 "src/test/java/FeatureFiles/_06_ÜrünSiparişi.feature",
