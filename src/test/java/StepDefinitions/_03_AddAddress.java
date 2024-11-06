@@ -28,17 +28,17 @@ public class _03_AddAddress {
     @When("Click to Sign in Button")
     public void clickToSignInButton() {
 
-        dc.myClick(dc.signInButton1);
+        dc.myClick(dc.signIn);
         dc.mySendKeys(dc.emailBox, "mevahap@hotmail.com");
         dc.mySendKeys(dc.passwordBox, "1Bilgisayar.");
-        dc.myClick(dc.signInButton2);
+        dc.myClick(dc.loginConfirmation);
 
     }
 
     @Then("Click on the My Account section")
     public void clickOnTheMyAccountSection() {
 
-        dc.myClick(dc.selectMenu);
+        dc.myClick(dc.customerMenuDropDown);
         dc.myClick(dc.myAccountButton);
 
     }
@@ -46,7 +46,7 @@ public class _03_AddAddress {
     @And("Click on Manage Address Button")
     public void ClickonManageAddressButton() {
 
-        dc.myClick(dc.manageAddressButton);
+        dc.myClick(dc.manageAddressesButton);
 
     }
 
