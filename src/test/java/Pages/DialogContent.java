@@ -280,21 +280,6 @@ public class DialogContent extends ParentPage {
     @FindBy(xpath= "//div[@role=\"alert\"]")
     public WebElement alertMessage;
 
-    @FindBy(id= "search")
-    public WebElement searchField;
-
-    @FindBy(id= "search_autocomplete")
-    public WebElement selectedSearchOption;
-
-    @FindBy(xpath= "//a[text()='Learn More']")
-    public WebElement learnMoreButton;
-
-    @FindBy(xpath= "//div[@itemprop='sku']")
-    public WebElement skuCodeText;
-
-    @FindBy(xpath= "//div[@class=\"message notice\"]")
-    public WebElement errorMessage;
-
     public WebElement getWebElementt(String strWebElement) {
         switch (strWebElement) {
             case "myAccountButton":
@@ -636,5 +621,83 @@ public class DialogContent extends ParentPage {
 
         }
         return null;
+    }
+    //3
+
+    @FindBy(xpath = "//span[text()='Add New Address']")
+    public WebElement AddNewAddressButton;
+
+    @FindBy(xpath = "//input[@id='telephone']")
+    public WebElement TelephoneInputt;
+
+    @FindBy(xpath = "//input[@id='street_1']")
+    public WebElement Streett;
+
+    @FindBy(xpath = "//input[@id='city']")
+    public WebElement Cityy;
+
+    @FindBy(xpath = "//select[@id='region_id']")
+    public WebElement Statee;
+
+    @FindBy(xpath = "//input[@id='zip']")
+    public WebElement Zipp;
+
+    @FindBy(xpath = "//span[text()='Save Address']")
+    public WebElement SaveAddressButtonn;
+
+    @FindBy(xpath = "//input[@id='primary_billing']")
+    public WebElement DefaultBillingg;
+
+    @FindBy(xpath = "//input[@id='primary_shipping']")
+    public WebElement DefaultShippingg;
+
+    @FindBy(xpath = "//span[text()='Delete']")
+    public WebElement DeleteButtonn;
+
+    @FindBy(xpath = "//span[text()='OK']")
+    public WebElement DeleteOkk;
+
+    @FindBy(css = "[data-bind*='message.text']")
+    public WebElement messageTextt;
+
+    @FindBy(xpath = "//*[@id='wishlist-view-form']/div[1]")
+    public WebElement wishListNotEmptyy;
+
+    @FindBy(xpath = "//img[@class='product-image-photo' and @alt='Radiant Tee']")
+    public WebElement wishListProductt;
+
+    public WebElement getWebbElement(String strElementName) {
+        switch (strElementName.trim()) {
+            case "AddNewAddressButton":
+                return this.AddNewAddressButton;
+            case "Telephone":
+                return this.TelephoneInputt;
+            case "Street703":
+                return this.Streett;
+            case "City703":
+                return this.Cityy;
+            case "Region703":
+                return this.Statee;
+            case "Zip703":
+                return this.Zipp;
+            case "SaveAddressButton703":
+                return this.SaveAddressButtonn;
+            case "DefaultBilling703":
+                return this.DefaultBillingg;
+            case "DefaultShipping703":
+                return this.DefaultShippingg;
+            case "DeleteButton703":
+                return this.DeleteButtonn;
+            case "DeleteOk703":
+                return this.DeleteOkk;
+            case "messageText":
+                return this.messageTextt;
+            case "wishListNotEmpty":
+                return this.wishListNotEmptyy;
+            case "wishListProduct":
+                return this.wishListProductt;
+            default:
+                return null;
+        }
     }
 }
